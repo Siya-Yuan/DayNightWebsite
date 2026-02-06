@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My Website</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!--Maybe later make a parent container for everything for website layout-->
+
+
+        <!--Scroll Buttons-->        
+        <button onclick="scrollUp()" id="upBtn" title="Scroll up">▲</button>
+        <button onclick="scrollDown()" id="downBtn" title="Scroll Down">▼</button>
+
+        <!--Day/Night-->
+        <div class="Daytime">
+            <div class="SunWrapper">
+                <img id="sky" src="assets/finalSun.png">
+                <p id="modeText">Daytime</p>
+            </div>
+        </div>
+
+            <!--Window Box-->
+            <fieldset class="window" id="windowPage"> <!--Allows me to put text in  the border-->
+                <legend class="windowTitle">
+                    <p>HOME</p>
+                </legend>
+                <h1>Welcome all!</h1>
+                <p>Here are some basic things before you go explore and get to know me:</p>
+                <P>To scroll on this page, please use the buttons on the right. If you're curious to why I've designed it this way, you can find out in the notes section of the taskbar where I explain some other stuff too!</P>
+                <p>To gain extra user experience, make sure you have your volume up as I've added some sound effects around ;) (Sound effects were recorded from the Persona 4 Golden menu ui)</p>
+                <p> You can choose your preference of the day and night mode by pressing on the power button.</p>
+
+        
+                <br>
+                <p>Enjoy!</p>
+                <img src="assets/yay.jpg"class="roundedCorners" width="450">
+                
+
+            </fieldset>
+
+            <!--Container for the desktop icons-->
+            <!--So the icon wraps around the link which wraps around the test and the pic wow-->
+            <div class="desktop">
+                <div class="icon1">
+                    <a href="aboutMe.html">
+                    <img id="kas1" src="assets/daytimeKas1.png" alt="test">
+                        <p id="aboutMe">About me</p>
+                    </a>
+                </div>
+                <div class="icon2">
+                    <a href="catShrine.html">
+                        <img id="kas2" src="assets/daytimeKas2.png" alt="test">
+                        <p id="catShrine">Cat Shrine</p>
+                    </a>
+                </div>
+                <div class="icon3">
+                    <a href="hobbies.html">
+                        <img id= "kas3" src="assets/daytimeKas3.png" alt="test">
+                        <p id="hobbies">Interests</p>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="taskbar">
+                <div class="taskwrapper"> <!--Kas pic for the taskbar-->
+                    <img id="taskbarKas" src="assets/realkas.png" class="taskicon">
+                </div>
+
+                <div class="nightmode">
+                    <button onclick="toggleBtn()" id="toggleBtn" title="Night Mode">⏻</button>
+
+                </div>
+
+                <div class="home">
+                    <a href="index.html">
+                        <p>HOME</p>
+                    </a>
+                </div>
+
+                <div class="notes">
+                    <a href="notes.html">
+                        <p>NOTES</p>
+                </div>
+            </div>
+            
+        <script src="script.js" defer></script>
+    </body>
+</html>

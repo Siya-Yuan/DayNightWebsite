@@ -1,0 +1,624 @@
+/*Bugs
+only can manually scroll
+
+*/
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+/*Basic background for now as I'm trying to keep it simple*/
+body {
+    /*overlaying the texture on top of the linear gradient background*/
+    background-image:
+        url('assets/kiraKira.png'),
+        /*linear-gradient(90deg, rgba(32,66,112,0.8) 0%, rgba(212,234,255,0.8) 100%);*/
+        linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(141, 194, 255, 1) 100%);
+    /*background-color: #8dc2ff;*/
+
+    background-repeat: repeat, no-repeat;
+    background-size: 200px 200px, cover;
+    background-position: 0 0, center;
+
+    animation: star 10s ease-in-out infinite;
+    animation-fill-mode: forwards;
+    
+
+}
+
+@keyframes star {
+    0% {
+        background-position: 0 0, center;
+
+    }
+
+    25% {
+        background-position: 5px 5px, center;
+
+    }
+
+    50% {
+        background-position: 10px 10px, center;
+
+    }
+
+    75% {
+        background-position: 5px 5px, center;
+
+    }
+
+    100% {
+        background-position: 0 0, center;
+
+    }
+}
+
+body.darkmode {
+    background-image: 
+        url('assets/stars.png'),
+        linear-gradient(90deg, rgba(3, 2, 7, 1) 0%, rgba(2, 18, 51, 1) 100%);  
+        background-size: 250px 250px, cover;
+}
+
+/*Customising the text*/
+p {
+    color: #0A2440;
+    font-family:monospace;
+    font-size: 110%;
+    font-weight: 560;
+}
+
+body.darkmode p {
+    color: #D3D0B2;
+}
+
+/*Getting rid of the hyperlink underline*/
+a {
+    text-decoration: none;
+}
+
+.roundedCorners {
+    border-radius: 25px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+.SunWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%}
+
+.Daytime {
+    position: absolute;
+    display: flex;
+
+    width: 14%;
+    height: 20%;
+
+    /*border: 2px solid black; */
+
+    top: 7%;
+    left: 4%;
+}
+
+.SunWrapper p {
+    z-index: 5;
+    color: #f3f6ff;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color:#3770bf;
+     /*text-shadow: 
+        0.025em 0.025em 0 #C3E978,
+        0.05em 0.05em 0 #f3f6ff,
+        0.075em 0.075em 0 #3770bf,
+        0.1em 0.1em 0em #0A2440;
+        */
+
+    top: 40px;
+    left: 35px;
+    font-size: 40px;  
+    position: absolute; 
+    /*transform: skewY(-6deg);*/
+
+    transform: perspective(400px) rotateY(45deg) skew(-6deg);
+}
+
+body.darkmode .SunWrapper p {
+    color: #021233;
+    -webkit-text-stroke-color:#D3D0B2;
+    top: 50px;
+    left: 10px;
+
+}
+
+.SunWrapper img {
+    position: absolute;
+    z-index:2;
+    width: 200px;
+
+    top: 0px;
+    left: 0px;
+
+    transform: skewY(-20deg) rotate(180deg) perspective(30px);
+
+    animation: pulse 3s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: skewY(-20deg) rotate(180deg) scale(1);
+    }
+
+    50% {
+        transform: skewY(-20deg) rotate(178deg) scale(1.05);
+    }
+
+    100% {
+        transform: skewY(-20deg) rotate(180deg) scale(1);
+    }
+}
+
+/*
+.SunWrapper img:hover {
+    animation-play-state: paused;
+}
+*/
+body.darkmode .SunWrapper img {
+    animation: moonPulse 3s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moonPulse {
+    0% {
+        transform: skewY(-20deg) rotate(335deg) scale(1);
+    }
+
+    50% {
+        transform: skewY(-20deg) rotate(333deg) scale(1.05);
+    }
+
+    100% {
+        transform: skewY(-20deg) rotate(335deg) scale(1);
+    }
+}
+
+/*-----------------------------------------------------------------------------------------*/
+.taskwrapper {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.taskicon { /*Kas on taskbar keeps moving around when screen size changes*/
+    position: absolute;
+    width: 70px;
+    transform: translateY(-37px);
+
+    z-index: 100;
+}
+
+body.darkmode .taskicon {
+    z-index:0;
+    transform: translateX(-50px) translateY(-60px);
+}
+
+.taskbar {
+    box-shadow: rgba(227, 220, 220, 0.35) 0px -50px 36px -28px inset;
+    z-index: 1;
+    display: flex;
+
+    height: 6%;
+    width: 30%;
+
+    position: absolute;
+    background-color: #3770bf;
+
+    top: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /*Rounded edges*/
+    border-radius: 25px;
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible
+}
+
+body.darkmode .taskbar {
+    background-color: #2D1B7F;
+}
+
+.taskbar p {
+    color: #f3f6ff;
+    transition: transform 0.25s ease;
+}
+
+body.darkmode .tasker p {
+    color:#D3D0B2;
+}
+
+.home {
+    position: absolute;
+    left: 13%;
+}
+
+.notes {
+    position: absolute;
+    right: 17%;
+}
+
+.nightmode {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*taskbar animations*/
+.taskbar p:hover {
+    transform: scale(1.2);
+}
+
+.taskbar #toggleBtn:hover {
+    transform: scale(1.2);
+}
+
+#toggleBtn {
+    font-size: 18px;
+    background-color:#f3f6ff;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #0A2440;
+    transition: transform 0.25s ease;
+}
+
+body.darkmode #toggleBtn {
+    background-color: #D3D0B2;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*The fake window to put all my text in*/
+.window {
+    /*Text customisation so that it doesn't get lost when text content changes*/
+    font-family:monospace;
+    font-size: 120%;
+    font-weight: 560;
+
+    pointer-events: auto;
+    z-index: 100;
+    box-sizing: border-box;
+    /*Box properties*/
+
+    /*Don't know if this is needed but helps blocks inside to be more predictable*/
+    display: flex;
+    flex-direction: column;
+
+    /*Size of box*/
+    width: 43vw;
+    height: 55vh;
+    min-height: 0;
+
+    transform: perspective(1100px) rotateY(-10deg);
+
+    /*Allows window to scroll*/
+    overflow-y: hidden;
+
+    /*How text is aligned left, center, or right*/
+    text-align: left;
+
+    /*Positioning the window*/
+    position: absolute;
+    top: 15%;
+    right: 10%;
+
+    /*Box design*/
+    border-radius: 5px;
+    border: 7.5px solid #3770bf; /*7*/
+    border-top: 30px solid #3770bf; /*30*/
+    padding: 40px; /* 50 How far away you want the text to be away from the border*/
+    background-color: #f3f6ff;
+
+    /*box-shadow: 10px 10px 70px #0A2440;*/
+    box-shadow: 20px 20px #0A2440;
+
+    /*
+    animation: windowPulse 3s ease-in-out infinite;
+    animation-fill-mode: forwards;
+    */
+
+    transition: transform 0.3s ease;
+}
+/*
+
+@keyframes windowPulse {
+    0% {
+        transform: perspective(1100px) rotateY(-10deg) scale(0.8);
+    }
+
+    50% {
+        transform: perspective(1100px) rotateY(-10deg) scale(0.78);
+    }
+
+    100% {
+        transform: perspective(1100px) rotateY(-10deg) scale(0.8);
+    }
+}
+    */
+
+body.darkmode .window {
+    color: #D3D0B2;
+
+    background-color: #030207;
+    box-shadow: 20px 20px #2D1B7F;
+
+    border: 7.5px solid #7547E8; /*7*/
+    border-top: 30px solid #7547E8; /*30*/
+}
+
+.window:hover {
+    transform: scale(1);
+}
+@keyframes return {
+    0% {
+        transform: perspective(0) rotateY(0deg) scale(1);
+    }
+
+    50% {
+        transform: perspective(0) rotateY(0deg) scale(1);
+    }
+
+    100% {
+        transform: perspective(0) rotateY(0deg) scale(1);
+    }
+}
+
+.windowTitle p {
+    color:#0A2440;
+    background-color:#C3E978;
+}
+
+body.darkmode .windowTitle p {
+    font-family:monospace;
+    font-size: 120%;
+    font-weight: 560;
+    color: #D3D0B2;
+    background-color: #941346;
+}
+
+/*-----------------------------------------------------------------------------------------------------------*/
+
+/*Desktop icons*/
+.desktop {
+    /*Allows the icon children to be within the desktop container*/
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    /*temporary border*/
+    /*border: solid;*/
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/*Children of the desktop container*/
+
+.icon1 img {
+    transform: rotate(90deg);
+    width: 5vw;
+    height: auto;
+    display: block;
+}
+
+body.darkmode .icon1 img {
+    transform: rotate(360deg);
+}
+
+body.darkmode .icon1 a {
+    /*-webkit-text-stroke: 1px #fff #0A2440;*/
+    text-shadow: 2px 0 #0A2440, -2px 0 #0A2440, 0 2px #0A2440, 0 -2px #0A2440,
+               1px 1px #0A2440, -1px -1px #0A2440, 1px -1px #0A2440, -1px 1px #0A2440;
+}
+
+.icon1 a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    position: absolute;
+    top: 50%;
+    left: 15%;
+
+    gap: -30px;
+    margin: 0;
+    line-height: -7;
+}
+
+.icon1 a:hover {
+    transition: transform 0.25s ease;
+    transform: scale(1.2);
+    text-shadow: 5px 5px 10px #C3E978; 
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.icon2 a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 43%;
+    left:35%;
+}
+
+.icon2 img {
+    width: 8vw;
+    height: auto;
+    display: block;
+}
+
+body.darkmode .icon2 a {
+    /*-webkit-text-stroke: 1px #fff #0A2440;*/
+    text-shadow: 2px 0 #0A2440, -2px 0 #0A2440, 0 2px #0A2440, 0 -2px #0A2440,
+               1px 1px #0A2440, -1px -1px #0A2440, 1px -1px #0A2440, -1px 1px #0A2440;
+}
+
+.icon2 a:hover {
+    transition: transform 0.25s ease;
+    transform: scale(1.2);
+    text-shadow: 5px 5px 10px #C3E978;
+}
+
+body.darkmode .icon2 img {
+    transform: scale(0.7);
+}
+
+/*------------------------------------------------------------------------------------*/
+.icon3 a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 45%;
+    left: 25%;
+}
+
+.icon3 img {
+    transform: rotate(270deg);
+    width: 5vw;
+    height: auto;
+    display: block;
+}
+
+body.darkmode .icon3 a {
+    /*-webkit-text-stroke: 1px #fff #0A2440;*/
+    text-shadow: 2px 0 #0A2440, -2px 0 #0A2440, 0 2px #0A2440, 0 -2px #0A2440,
+               1px 1px #0A2440, -1px -1px #0A2440, 1px -1px #0A2440, -1px 1px #0A2440;
+}
+
+.icon3 a:hover {
+    transition: transform 0.25s ease;
+    transform: scale(1.2);
+    text-shadow: 5px 5px 10px #C3E978;
+}
+
+body.darkmode .icon3 img {
+    transform: rotate(360deg);
+}
+
+
+
+/*------------------------------------------------------------------------------------*/
+
+/*Scroll Buttons*/
+#upBtn {
+    z-index: 199;
+    position: fixed;
+
+    width: 50px;
+    height: 40px;
+
+    top: 400px;
+    right: 100px;
+
+    background-color: #C3E978;
+    font-size: 25px;
+    border-radius: 15px;
+    border: 2px solid #0A2440;
+
+    color:#0A2440;
+
+    transform: perspective(200px) rotateY(-25deg);
+    box-shadow: 7px 7px #0A2440;
+}
+
+body.darkmode #upBtn {
+    background-color: #941346;
+    color: #D3D0B2;
+    box-shadow: 7px 7px #2D1B7F;
+
+}
+
+#upBtn:hover {
+    background-color:#f3f6ff;
+    color:#3770bf
+}
+
+#upBtn:active {
+    box-shadow: 4px 4px #0A2440;
+}
+
+#downBtn:active {
+    box-shadow: 4px 4px #0A2440;
+}
+
+body.darkmode #upBtn:active {
+    box-shadow: 4px 4px #0A2440;
+}
+
+body.darkmode #downBtn:active {
+    box-shadow: 4px 4px #2D1B7F;
+}
+
+body.darkmode #upBtn:hover {
+    color:#2D1B7F;
+    background-color: #D3D0B2;
+}
+
+#downBtn {
+    z-index: 199;
+    position: fixed;
+
+    width: 50px;
+    height: 40px;
+
+    top: 470px;
+    right: 100px;
+
+    background-color: #C3E978;
+    font-size: 25px;
+    border-radius: 15px;
+    border: 2px solid #0A2440;
+
+    color:#0A2440;
+
+    transform: perspective(200px) rotateY(-25deg);
+    box-shadow: 7px 7px #0A2440
+}
+
+body.darkmode #downBtn {
+    background-color: #941346;
+    color: #D3D0B2;
+    box-shadow: 7px 7px #2D1B7F;
+}
+
+#downBtn:hover {
+    background-color:#f3f6ff;
+    color:#3770bf
+}
+
+body.darkmode #downBtn:hover {
+    color:#2D1B7F;
+    background-color: #D3D0B2;
+}
+
+@media only screen and (max-width: 2000px) {
+    #upBtn {
+        top: 300px;
+        right: 55px;
+    }
+
+    #downBtn {
+        top: 360px;
+        right: 55px;
+    }
+}

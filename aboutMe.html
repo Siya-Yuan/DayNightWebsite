@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My Website</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!--Maybe later make a parent container for everything for website layout-->
+
+
+        <!--Scroll Buttons-->        
+        <button onclick="scrollUp()" id="upBtn" title="Scroll up">▲</button>
+        <button onclick="scrollDown()" id="downBtn" title="Scroll Down">▼</button>
+
+        <!--Day/Night-->
+        <div class="Daytime">
+            <div class="SunWrapper">
+                <img id="sky" src="assets/finalSun.png">
+                <p id="modeText">Daytime</p>
+            </div>
+        </div>
+
+            <!--Window Box-->
+            <fieldset class="window" id="windowPage"> <!--Allows me to put text in  the border-->
+                <legend class="windowTitle">
+                    <p>About Me</p>
+                </legend>
+                
+                <h3>Hello,</h3>
+                <p>I'm Siya. I was born in New Zealand in the early morning of a spring day in 2005, but call Sydney my home as I have lived there for almost my entire life. I'm Chinese but I can't speak Mandarin and unfornately have the listening skills equivalent to a one year old.</p>
+                <p>I'm about to be a third year studying software development and a little bit of computer systems at usyd. But I definitely don't know enough, hence why this website.</p>
+            </fieldset>
+
+            <!--Container for the desktop icons-->
+            <!--So the icon wraps around the link which wraps around the test and the pic wow-->
+            <div class="desktop">
+                <div class="icon1">
+                    <a href="aboutMe.html">
+                    <img id="kas1" src="assets/daytimeKas1.png" alt="test">
+                        <p id="aboutMe">About me</p>
+                    </a>
+                </div>
+                <div class="icon2">
+                    <a href="catShrine.html">
+                        <img id="kas2" src="assets/daytimeKas2.png" alt="test">
+                        <p id="catShrine">Cat Shrine</p>
+                    </a>
+                </div>
+                <div class="icon3">
+                    <a href="hobbies.html">
+                        <img id= "kas3" src="assets/daytimeKas3.png" alt="test">
+                        <p id="hobbies">Interests</p>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="taskbar">
+                <div class="taskwrapper"> <!--Kas pic for the taskbar-->
+                    <img id="taskbarKas" src="assets/realkas.png" class="taskicon">
+                </div>
+
+                <div class="nightmode">
+                    <button onclick="toggleBtn()" id="toggleBtn" title="Night Mode">⏻</button>
+
+                </div>
+
+                <div class="home">
+                    <a href="index.html">
+                        <p>HOME</p>
+                    </a>
+                </div>
+
+                <div class="notes">
+                    <a href="notes.html">
+                        <p>NOTES</p>
+                </div>
+            </div>
+            
+        <script src="script.js" defer></script>
+    </body>
+</html>
